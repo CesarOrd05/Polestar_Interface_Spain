@@ -1,0 +1,155 @@
+﻿<Window x:Class="PolestarSpain.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Polestar España — Inicio" 
+        Height="760" Width="1200" 
+        WindowStartupLocation="CenterScreen"
+        Background="#F8F8F8" FontFamily="Segoe UI">
+
+    <!-- Animación al abrir la ventana -->
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="MainContent" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.35"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+
+        <!-- Cabecera Común -->
+        <Border Grid.Row="0" Background="White" BorderBrush="#E0E0E0" BorderThickness="0,0,0,1" Padding="30,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Cursor="Hand">
+                    <Path Data="M 15,0 L 18,12 L 30,15 L 18,18 L 15,30 L 12,18 L 0,15 L 12,12 Z" 
+                          Fill="#101010" Width="26" Height="26" Stretch="Uniform" Margin="0,0,12,0"/>
+                    <TextBlock Text="Polestar" FontSize="20" FontWeight="SemiBold" Foreground="#101010" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Content="Inicio" Style="{StaticResource ActiveNavButtonStyle}"/>
+                    <Button Content="Galería de Modelos" Style="{StaticResource NavButtonStyle}" Click="GoToGallery_Click"/>
+                    <Button Content="Área de Clientes" Style="{StaticResource NavButtonStyle}" Click="GoToLogin_Click"/>
+                </StackPanel>
+
+                
+                <Border Grid.Column="2" Background="#F2F2F2" CornerRadius="12" Padding="12,5" VerticalAlignment="Center">
+                    <TextBlock Text="ES | Concesionario Oficial" FontSize="12" Foreground="#555555" FontWeight="SemiBold"/>
+                </Border>
+            </Grid>
+        </Border>
+
+        
+        <ScrollViewer x:Name="MainContent" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="40,30">
+                
+                <Border Background="#121212" Padding="45,40" Margin="0,0,0,30">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                            <TextBlock Text="CAMPAÑA DE LANZAMIENTO ESPAÑA 2026" Foreground="#FFC9A661" FontSize="12" FontWeight="Bold" Margin="0,0,0,8"/>
+                            <TextBlock Text="El futuro del diseño escandinavo llega a nuestras carreteras." Foreground="White" FontSize="30" FontWeight="Light" TextWrapping="Wrap" Margin="0,0,0,15"/>
+                            <TextBlock Text="Descubre la nueva gama 100% eléctrica de alto rendimiento. Tecnología de asistencia avanzada preparada para la conducción autónoma." 
+                                       Foreground="#BBBBBB" FontSize="14" TextWrapping="Wrap" Margin="0,0,0,25"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Explorar Galería" Style="{StaticResource PrimaryButtonStyle}" Background="White" Foreground="#101010" Click="GoToGallery_Click" Margin="0,0,15,0"/>
+                                <Button Content="Acceso Clientes" Style="{StaticResource PrimaryButtonStyle}" Background="Transparent" BorderBrush="White" Foreground="White" Click="GoToLogin_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <Border Grid.Column="1" Background="#1E1E1E" Padding="25" Margin="30,0,0,0" BorderBrush="#333333" BorderThickness="1">
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="OFERTA ESTACIONAL DE NAVIDAD" Foreground="#FFFFD277" FontSize="11" FontWeight="Bold"/>
+                                <TextBlock Text="Polestar 2 Long Range" Foreground="White" FontSize="22" FontWeight="SemiBold" Margin="0,5,0,10"/>
+                                <TextBlock Text="• Desde 42.900 € " Foreground="#DDDDDD" FontSize="13" Margin="0,2"/>
+                                <TextBlock Text="• Cargador Wallbox doméstico gratuito" Foreground="#DDDDDD" FontSize="13" Margin="0,2"/>
+                                <TextBlock Text="• Financiación 0% TAE para tiendas" Foreground="#DDDDDD" FontSize="13" Margin="0,2,0,15"/>
+                                <Border Background="White" Padding="10,6" HorizontalAlignment="Left">
+                                    <TextBlock Text="AHORRO DIRECTO DE 7.000 €" Foreground="#101010" FontSize="11" FontWeight="Bold"/>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <TextBlock Text="Productos más novedosos y con mejor precio" FontSize="20" FontWeight="SemiBold" Foreground="#101010" Margin="10,0,0,15"/>
+
+                <UniformGrid Columns="3">
+                    
+                    <Border Style="{StaticResource CarCardStyle}">
+                        <StackPanel>
+                            <Border Background="#101010" HorizontalAlignment="Left" Padding="8,3" Margin="0,0,0,12">
+                                <TextBlock Text="MEJOR PRECIO" Foreground="White" FontSize="10" FontWeight="Bold"/>
+                            </Border>
+                            <TextBlock Text="Polestar 2" FontSize="22" FontWeight="SemiBold"/>
+                            <TextBlock Text="Fastback 100% Eléctrico" FontSize="13" Foreground="#666666" Margin="0,2,0,15"/>
+                            <Border Height="100" Background="White" Margin="0,0,0,15" Padding="15">
+                                <Image Margin="0,-15,0,-15" Source="/Polestar 2 Modelo.png" Stretch="Fill" Width="219" RenderTransformOrigin="0.471,0.586"/>
+                            </Border>
+                            <TextBlock Text="42.900 €" FontSize="20" FontWeight="Bold"/>
+                            <TextBlock Text="Autonomía de hasta 655 km WLTP" FontSize="11" Foreground="#777777" Margin="0,2,0,15"/>
+                            <Button Content="Ver Detalles en Galería" Style="{StaticResource PrimaryButtonStyle}" Click="GoToGallery_Click"/>
+                        </StackPanel>
+                    </Border>
+
+                    
+                    <Border Style="{StaticResource CarCardStyle}">
+                        <StackPanel>
+                            <Border HorizontalAlignment="Left" Padding="8,3" Margin="0,0,0,12" Background="#FFBCC0C2">
+                                <TextBlock Text="NOVEDAD DESTACADA" Foreground="#101010" FontSize="10" FontWeight="Bold"/>
+                            </Border>
+                            <TextBlock Text="Polestar 4" FontSize="22" FontWeight="SemiBold"/>
+                            <TextBlock Text="SUV Coupé sin luneta trasera" FontSize="13" Foreground="#666666" Margin="0,2,0,15"/>
+                            <Border Height="100" Background="#FFF0F0F0" Margin="0,0,0,15" Padding="15">
+                                <Image Margin="0,-15,0,-15" Source="/Polestar 4 Modelo.png" Stretch="Fill" Width="200"/>
+                            </Border>
+                            <TextBlock Text="65.900 €" FontSize="20" FontWeight="Bold"/>
+                            <TextBlock Text="0-100 km/h en 3.8 segundos" FontSize="11" Foreground="#777777" Margin="0,2,0,15"/>
+                            <Button Content="Ver Detalles en Galería" Style="{StaticResource PrimaryButtonStyle}" Click="GoToGallery_Click"/>
+                        </StackPanel>
+                    </Border>
+
+                    
+                    <Border Style="{StaticResource CarCardStyle}">
+                        <StackPanel>
+                            <Border Background="#2E5A44" HorizontalAlignment="Left" Padding="8,3" Margin="0,0,0,12">
+                                <TextBlock Text="CONDUCCIÓN AUTÓNOMA" Foreground="White" FontSize="10" FontWeight="Bold"/>
+                            </Border>
+                            <TextBlock Text="Polestar 3" FontSize="22" FontWeight="SemiBold"/>
+                            <TextBlock Text="SUV con tecnología LiDAR" FontSize="13" Foreground="#666666" Margin="0,2,0,15"/>
+                            <Border Height="100" Background="#FFF0F1F0" Margin="0,0,0,15" Padding="15">
+                                <Image Margin="0,-15,0,-15" Source="/Polestar 3 Modelo.png" Stretch="Fill" Width="203"/>
+                            </Border>
+                            <TextBlock Text="88.900 €" FontSize="20" FontWeight="Bold"/>
+                            <TextBlock Text="Hardware NVIDIA DRIVE integrado" FontSize="11" Foreground="#777777" Margin="0,2,0,15"/>
+                            <Button Content="Ver Detalles en Galería" Style="{StaticResource PrimaryButtonStyle}" Click="GoToGallery_Click"/>
+                        </StackPanel>
+                    </Border>
+                </UniformGrid>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" Background="White" BorderBrush="#E0E0E0" BorderThickness="0,1,0,0" Padding="30,0"/>
+    </Grid>
+</Window>
